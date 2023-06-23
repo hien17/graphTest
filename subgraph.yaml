@@ -14,6 +14,7 @@ dataSources:
       apiVersion: 0.0.7
       language: wasm/assemblyscript
       entities:
+        - Token
         - Approval
         - ApprovalForAll
         - ApprovalForAllNft
@@ -26,20 +27,10 @@ dataSources:
         - name: Contract
           file: ./abis/Contract.json
       eventHandlers:
-        - event: Approval(indexed address,indexed address,indexed uint256)
-          handler: handleApproval
         - event: ApprovalForAll(indexed address,indexed address,bool)
           handler: handleApprovalForAll
-        - event: ApprovalForAllNft(indexed address,indexed address,bool)
-          handler: handleApprovalForAllNft
         - event: Mint(uint256,indexed address,indexed address,indexed uint256)
           handler: handleMint
-        - event: OwnershipTransferred(indexed address,indexed address)
-          handler: handleOwnershipTransferred
         - event: Transfer(indexed address,indexed address,indexed uint256)
           handler: handleTransfer
-        - event: TransferDetail(uint256,indexed address,indexed address,indexed uint256)
-          handler: handleTransferDetail
-        - event: Withdraw(indexed address,uint256)
-          handler: handleWithdraw
       file: ./src/contract.ts
